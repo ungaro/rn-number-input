@@ -42,6 +42,8 @@ import NumberInput from 'rn-number-input';
 
 ## Available Props
 
+`<NumberInput />` exposes all the props available to the <TextInput /> plus the following below:
+
 Property  | Type | Default | Description
 ------------- | ------------- | ------ | --------
 step          | number | 1 | amount in which the value is increased or decreased
