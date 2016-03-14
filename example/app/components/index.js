@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _reactNative = require('react-native');
@@ -17,6 +19,8 @@ var _chevronIcon2 = _interopRequireDefault(_chevronIcon);
 var _util = require('./util');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -103,8 +107,8 @@ var NumberInput = function (_React$Component) {
       var arrowStyle = _props3.arrowStyle;
       var decimalPoints = _props3.decimalPoints;
       var arrowColour = _props3.arrowColour;
-      var editable = _props3.editable;
 
+      var inputProps = _objectWithoutProperties(_props3, ['style', 'value', 'onChange', 'width', 'height', 'valueStyle', 'arrowStyle', 'decimalPoints', 'arrowColour']);
 
       var number = +parseFloat((0, _util.convertToString)(value)).toFixed(decimalPoints);
       var buttonStyle = [styles.chevron, arrowStyle];
@@ -115,14 +119,13 @@ var NumberInput = function (_React$Component) {
         _reactNative2.default.createElement(
           _reactNative.View,
           { style: styles.container },
-          _reactNative2.default.createElement(_reactNative.TextInput, {
+          _reactNative2.default.createElement(_reactNative.TextInput, _extends({}, inputProps, {
             style: [styles.value, valueStyle],
             value: (0, _util.convertToString)(number),
             keyboardType: 'numeric',
             autoCorrect: false,
-            onChangeText: this.handleChangeText.bind(this),
-            editable: editable
-          }),
+            onChangeText: this.handleChangeText.bind(this)
+          })),
           _reactNative2.default.createElement(
             _reactNative.View,
             { style: styles.buttons },

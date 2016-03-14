@@ -4,6 +4,7 @@ import React, {
   AppRegistry,
   StyleSheet,
   Dimensions,
+  TextInput,
   Animated,
   Text,
   View
@@ -25,8 +26,8 @@ class example extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.form}>
+
           <Text style={styles.componentTitle}>{'<NumberInput />'}</Text>
           <View style={styles.row}>
             <Text style={styles.label}>Chicken Wings:</Text>

@@ -53,7 +53,7 @@ class NumberInput extends React.Component {
       arrowStyle,
       decimalPoints,
       arrowColour,
-      editable
+      ...inputProps
     } = this.props;
 
     const number = +(parseFloat(convertToString(value)).toFixed(decimalPoints));
@@ -63,12 +63,12 @@ class NumberInput extends React.Component {
       <View style={{ width, height }}>
         <View style={styles.container}>
           <TextInput
+            {...inputProps}
             style={[styles.value, valueStyle]}
             value={convertToString(number)}
             keyboardType='numeric'
             autoCorrect={false}
             onChangeText={this.handleChangeText.bind(this)}
-            editable={editable}
           />
 
           <View style={styles.buttons}>
