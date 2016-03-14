@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "compile": "babel ./app/components/number-input.spec.js",
-    "test": "tape -r babel-register ./app/**/*.spec.js | tap-spec"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
     "ramda": "0.19.1",

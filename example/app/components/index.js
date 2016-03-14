@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _reactNative = require('react-native');
@@ -108,17 +106,7 @@ var NumberInput = function (_React$Component) {
       var editable = _props3.editable;
 
 
-      var formatDecimals = (0, _util.slice)(0, decimalPoints - 1);
-
-      var _convertToString$spli = (0, _util.convertToString)(value).split('.');
-
-      var _convertToString$spli2 = _slicedToArray(_convertToString$spli, 2);
-
-      var ints = _convertToString$spli2[0];
-      var decimals = _convertToString$spli2[1];
-
-      var number = decimals ? ints + '.' + formatDecimals(decimals) : (0, _util.convertToString)(value);
-
+      var number = +parseFloat((0, _util.convertToString)(value)).toFixed(decimalPoints);
       var buttonStyle = [styles.chevron, arrowStyle];
 
       return _reactNative2.default.createElement(
@@ -129,7 +117,7 @@ var NumberInput = function (_React$Component) {
           { style: styles.container },
           _reactNative2.default.createElement(_reactNative.TextInput, {
             style: [styles.value, valueStyle],
-            value: number,
+            value: (0, _util.convertToString)(number),
             keyboardType: 'numeric',
             autoCorrect: false,
             onChangeText: this.handleChangeText.bind(this),
@@ -209,7 +197,7 @@ Number.propTypes = {
   valueStyle: _reactNative.Text.propTypes.style,
   min: _reactNative2.default.PropTypes.number,
   max: _reactNative2.default.PropTypes.number,
-  decimalPts: _reactNative2.default.PropTypes.number,
+  decimalPoints: _reactNative2.default.PropTypes.number,
   onChange: _reactNative2.default.PropTypes.func.isRequired,
   editable: _reactNative2.default.PropTypes.bool
 };

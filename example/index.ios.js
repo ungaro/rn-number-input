@@ -34,10 +34,11 @@ class example extends React.Component {
               value={this.state.chickenWings}
               min={-10}
               max={10}
-              decimalPoints={3}
+              step={0.25}
+              decimalPoints={2}
               onChange={(value) => this.setState({ chickenWings: value })}
               arrowColour={$coral}
-              width={70}
+              width={80}
               height={40}
             />
           </View>

@@ -56,10 +56,7 @@ class NumberInput extends React.Component {
       editable
     } = this.props;
 
-    const formatDecimals = slice(0, decimalPoints - 1);
-    const [ints, decimals] = convertToString(value).split('.');
-    const number = decimals ? `${ints}.${formatDecimals(decimals)}` : convertToString(value);
-
+    const number = +(parseFloat(convertToString(value)).toFixed(decimalPoints));
     const buttonStyle = [styles.chevron, arrowStyle];
 
     return (
@@ -67,7 +64,7 @@ class NumberInput extends React.Component {
         <View style={styles.container}>
           <TextInput
             style={[styles.value, valueStyle]}
-            value={number}
+            value={convertToString(number)}
             keyboardType='numeric'
             autoCorrect={false}
             onChangeText={this.handleChangeText.bind(this)}
@@ -146,7 +143,7 @@ Number.propTypes = {
   valueStyle: Text.propTypes.style,
   min: React.PropTypes.number,
   max: React.PropTypes.number,
-  decimalPts: React.PropTypes.number,
+  decimalPoints: React.PropTypes.number,
   onChange: React.PropTypes.func.isRequired,
   editable: React.PropTypes.bool,
 }

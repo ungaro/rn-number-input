@@ -17,7 +17,7 @@
     "compile": "babel src --out-dir dist",
     "compile:watch": "babel --watch src --out-dir example/app/components",
     "prepublish": "npm run compile",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape -r babel-register ./src/**/*.spec.js | tap-spec"
   },
   "files": [
     "dist"
