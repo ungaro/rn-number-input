@@ -1,0 +1,19 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "compile": "babel ./app/components/number-input.spec.js",
+    "test": "tape -r babel-register ./app/**/*.spec.js | tap-spec"
+  },
+  "dependencies": {
+    "ramda": "0.19.1",
+    "react-native": "0.21.0",
+    "react-native-keyboard-spacer": "0.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-react-native": "1.5.2",
+    "babel-preset-stage-1": "6.5.0"
+  }
+}
