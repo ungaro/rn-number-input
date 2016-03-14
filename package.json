@@ -1,6 +1,6 @@
 {
   "name": "rn-number-input",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Native component that behaviors and looks like <input type='number' />",
   "main": "dist/index.js",
   "keywords": [

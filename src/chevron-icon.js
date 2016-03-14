@@ -19,7 +19,7 @@ const ChevronIcon = ({ direction, style }) => (
   <View style={{transform: [getRotation(direction)]}}>
     <Image
       style={style}
-      source={require('../img/icon-chevron.png')}
+      source={require('./img/icon-chevron.png')}
     />
   </View>
 );
