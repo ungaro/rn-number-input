@@ -1,96 +1,67 @@
-React Native Number Input
+rn-number-input
 =========================
 
-Built for React Native, this component allows you to achieve a UI similar what you would get with a html number input.
+Created as an alternative to the native Picker component, rn-number-input is the number equivalent of `<TextInput />` and behaves and looks very similar to what you see on the web `<input type='number' />`.
+
+Screenshot of `<NumberInput />`
+
+![screenshot of the component](http://puu.sh/nFE2d/91bca1e71d.png)
 
 ## Installation
 
-rn-number-input requires **react-native 0.19 or later.**
+rn-number-input requires **react-native 0.20 or later.**
 
 ```
 npm install --save rn-number-input
 ```
 
-##  Example
-
+## Example
 To build the example locally, clone this repo then run:
 
 ```
+cd example
 npm install
-npm start
-Then open localhost:8080 in a browser.
+react-native (run-ios|run-android)
 ```
 
 ## Usage
-
-React Card Stack exports an object with two components. These are `CardStack` and `Card`. The `CardStack` component is responsible for holding the state of it's child `Card` components. However, this is abstracted away which makes using the component a whole deal simpler. **Note: there must be at least two instances of Card as children of CardStack, otherwise the component will throw an error**.
-
-An example use of React Card Stack looks like:
-
 ```js
-import { CardStack, Card } from 'react-cardstack';
+import React from 'react-native';
+import NumberInput from 'rn-number-input';
 
-<CardStack
-	height={500}
-	width={400}
-	background='#f8f8f8'
-	hoverOffset={25}>
-
-	<Card background='#2980B9'>
-		<h1>Number 1</h1>
-	</Card>
-
-	<Card background='#27AE60'>
-		<NumberTwo />
-	</Card>
-
-</CardStack>
+<NumberInput
+	value={this.state.chickenWings}
+	min={-10}
+	max={10}
+	onChange={(value) => this.setState({ chickenWings: value })}
+	arrowColour='blue'
+	width={70}
+	height={40}
+/>
 ```
 
-The `Card` component wraps around the content you want to render for each card. You can render both elements or components inside `Card`.
-
-### Figuring out the Header Height
-
-When all `Card` components are collapsed, the top of each card will be visible. This is basically the header of the `Card` component. To calculate what size the header will be simply divide the height passed to `CardStack` by the number of child `Card` components. In the example above, the header height for each card will be `500 / 2`, which equals `250`.
-
-## Options
-
-### CardStack
+## Available Props
 
 Property  | Type | Default | Description
 ------------- | ------------- | ------ | --------
-width       | number | 350px  | the width of the component
-height      | number | 500px  | the height of the component
-background  | string | f8f8f8 | can be a hex, rgba, gradiant value or a url()
-hoverOffset | number | 30px   | how far the card will shift up when being hovered
+step          | number | 1 | amount in which the value is increased or decreased
+value         | string or number | 0 | value shown of the input
+width         | number | 70 | specifies the width of the component
+height        | number | 40 | specifies the height of the component
+arrowColour   | string | #333 (dark grey) | `tintColor` for the arrow icon
+arrowStyle    | style  | [default styles] | specifies the style for each arrow button
+valueStyle    | style  | [default styles] | specifies the style for value within the input
+min           | number | 0   | specifies the min value
+max           | number | 100 | specifies the max value
+decimalPoints | number | 2   | how many decimal points that the value round's to
+onChange      | func (required) | undefined | function is called when the value is changed
+editable      | boolean | true | whether the input can be edited directly using the keypad
 
-### Card
-
-Property  | Type | Default | Description
-------------- | ------------- | ------- | -------
-background  | string | undefined | can be a hex, rgba, gradiant value or a url()
-cardClicked | func   | undefined | read below for description on how to use
-
-`cardClicked` is a prop which can be passed to `Card`. It takes a function, acting as a callback, and will get invoked when a user clicks on the card in which you passed it to. For example, look below:
-
-```js
-<Card
-	background='#27AE60'
-	cardClicked={this.handleCardClick.bind(this)}>
-	<NumberTwo />
-</Card>
-
-// example of the function being bound
-handleCardClick(cardSelected) {
-	console.log(cardSelected);
-}
-```
-
-When `this.handleCardClick` is invoked, it will receive the parameter `cardSelected` which will be a boolean describing whether there is currently a card selected or not.
 
 ## Todo
 
 - Add Unit Tests
+
 
 ## License
 
