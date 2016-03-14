@@ -42,7 +42,7 @@ import NumberInput from 'rn-number-input';
 
 ## Available Props
 
-`<NumberInput />` exposes all the props available to the <TextInput /> plus the following below:
+`<NumberInput />` exposes all the props available to the `<TextInput />` plus the following below:
 
 Property  | Type | Default | Description
 ------------- | ------------- | ------ | --------
