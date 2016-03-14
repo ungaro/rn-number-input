@@ -5,7 +5,7 @@ Created as an alternative to the native Picker component, rn-number-input is the
 
 Screenshot of `<NumberInput />`
 
-![screenshot of the component](http://puu.sh/nFE2d/91bca1e71d.png)
+![screenshot of the component](http://puu.sh/nFHud/cc1472e489.png)
 
 ## Installation
 
