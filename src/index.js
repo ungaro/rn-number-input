@@ -3,6 +3,8 @@
 import React, { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import ChevronIcon from './chevron-icon';
 import { nextValue, convertToString, newValue, slice } from './util';
+import PropTypes from 'prop-types';
+
 
 const ArrowButton = ({ onPress, direction, style, arrowColour }) => (
   <TouchableOpacity
